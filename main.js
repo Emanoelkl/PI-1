@@ -96,11 +96,13 @@ const jogar = () => {
   clearInterval(timer);
   if (level % 2 == 0) {
     balaoImagem.classList.add("balao-esq");
+    balaoImagem.classList.remove("balao-dir");
     balaoImg = "balao esquerda.png";
     textoBalao = texto.tupi;
     textoGuia = texto.portugues;
   } else {
     balaoImagem.classList.remove("balao-esq");
+    balaoImagem.classList.add("balao-dir");
     balaoImg = "balao direita.png";
     textoBalao = texto.portugues;
     textoGuia = texto.tupi;
@@ -147,6 +149,7 @@ const updateTimer = () => {
   tempo.textContent = tempoFaltando;
   if (tempoFaltando <= 0) {
     pontos.innerText = 0;
+    level = -1;
     fim();
   }
 };
