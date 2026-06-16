@@ -22,7 +22,8 @@ const telaTeclado = document.getElementById("tela-teclado");
 const telaJogo = document.getElementById("tela-jogo");
 const botaoJogar = document.getElementById("botao-jogar");
 const tempo = document.getElementById("tempo-restante");
-const balao = document.getElementById("balao-fala");
+const balao = document.getElementById("balao-txt");
+const balaoImagem = document.getElementById("balao-img");
 const pontos = document.getElementById("pontos");
 const guia = document.getElementById("texto-guia");
 const input = document.getElementById("input");
@@ -91,14 +92,20 @@ const jogar = () => {
   balao.textContent = "";
   let textoBalao = "";
   let textoGuia = "";
+  let balaoImg = "";
   clearInterval(timer);
   if (level % 2 == 0) {
+    balaoImagem.classList.add("balao-esq");
+    balaoImg = "balao esquerda.png";
     textoBalao = texto.tupi;
     textoGuia = texto.portugues;
   } else {
+    balaoImagem.classList.remove("balao-esq");
+    balaoImg = "balao direita.png";
     textoBalao = texto.portugues;
     textoGuia = texto.tupi;
   }
+  balaoImagem.src = balaoImg;
   logica(textoBalao, textoGuia);
 };
 
